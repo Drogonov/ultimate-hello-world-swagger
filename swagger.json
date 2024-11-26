@@ -165,11 +165,11 @@
         },
         "responses": {
           "201": {
-            "description": "OTP sent to registered email",
+            "description": "Returns status if successful",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/SignUpResponseDto"
                 }
               }
             }
@@ -251,11 +251,11 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "Returns true if logout is successful",
+            "description": "Returns status if successful",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "boolean"
+                  "$ref": "#/components/schemas/LogoutResponseDto"
                 }
               }
             }
@@ -488,6 +488,18 @@
           "password"
         ]
       },
+      "SignUpResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "Successful"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
       "TokensDto": {
         "type": "object",
         "properties": {
@@ -503,6 +515,18 @@
         "required": [
           "access_token",
           "refresh_token"
+        ]
+      },
+      "LogoutResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "Successful"
+          }
+        },
+        "required": [
+          "status"
         ]
       }
     }
