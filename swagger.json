@@ -10,7 +10,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LanguageCodeDto"
+                "$ref": "#/components/schemas/LanguageCodeRequestDto"
               }
             }
           }
@@ -47,7 +47,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LanguageCodeDto"
+                "$ref": "#/components/schemas/LanguageCodeRequestDto"
               }
             }
           }
@@ -84,7 +84,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LanguageCodeDto"
+                "$ref": "#/components/schemas/LanguageCodeRequestDto"
               }
             }
           }
@@ -121,7 +121,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LanguageCodeDto"
+                "$ref": "#/components/schemas/LanguageCodeRequestDto"
               }
             }
           }
@@ -158,7 +158,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthDto"
+                "$ref": "#/components/schemas/AuthRequestDto"
               }
             }
           }
@@ -190,7 +190,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthDto"
+                "$ref": "#/components/schemas/AuthRequestDto"
               }
             }
           }
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TokensDto"
+                  "$ref": "#/components/schemas/TokensResponseDto"
                 }
               }
             }
@@ -222,7 +222,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AuthDto"
+                "$ref": "#/components/schemas/AuthRequestDto"
               }
             }
           }
@@ -233,7 +233,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TokensDto"
+                  "$ref": "#/components/schemas/TokensResponseDto"
                 }
               }
             }
@@ -282,7 +282,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TokensDto"
+                  "$ref": "#/components/schemas/TokensResponseDto"
                 }
               }
             }
@@ -322,7 +322,7 @@
       }
     },
     "schemas": {
-      "LanguageCodeDto": {
+      "LanguageCodeRequestDto": {
         "type": "object",
         "properties": {
           "languageCode": {
@@ -359,7 +359,7 @@
           "title"
         ]
       },
-      "CountryDto": {
+      "CountryResponseDto": {
         "type": "object",
         "properties": {
           "name": {
@@ -401,7 +401,7 @@
           "countries": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CountryDto"
+              "$ref": "#/components/schemas/CountryResponseDto"
             }
           }
         },
@@ -469,7 +469,7 @@
           "infoText"
         ]
       },
-      "AuthDto": {
+      "AuthRequestDto": {
         "type": "object",
         "properties": {
           "email": {
@@ -500,7 +500,7 @@
           "status"
         ]
       },
-      "TokensDto": {
+      "TokensResponseDto": {
         "type": "object",
         "properties": {
           "access_token": {
