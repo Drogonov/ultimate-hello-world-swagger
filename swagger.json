@@ -555,14 +555,20 @@
         "properties": {
           "errorMsg": {
             "type": "string",
-            "example": "This email already in use"
+            "example": "This email isnt email please check it"
           },
           "errorSubCode": {
             "type": "string",
-            "example": "EMAIL_ALREADY_IN_USE"
+            "example": "INCORRECT_EMAIL"
           },
           "errorFields": {
             "description": "Array of fields with specified errors",
+            "example": [
+              {
+                "fieldCode": "email",
+                "errorMsg": "This email isnt email please check it"
+              }
+            ],
             "type": "array",
             "items": {
               "type": "string"
