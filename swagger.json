@@ -164,12 +164,22 @@
           }
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Returns status if successful",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SignUpResponseDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
                 }
               }
             }
@@ -205,6 +215,16 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
           }
         },
         "summary": "Verify OTP and authenticate user",
@@ -237,6 +257,16 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
           }
         },
         "summary": "Sign in with email and password",
@@ -256,6 +286,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LogoutResponseDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
                 }
               }
             }
@@ -283,6 +323,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TokensResponseDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
                 }
               }
             }
@@ -498,6 +548,31 @@
         },
         "required": [
           "status"
+        ]
+      },
+      "ErrorResponseDto": {
+        "type": "object",
+        "properties": {
+          "errorMsg": {
+            "type": "string",
+            "example": "This email already in use"
+          },
+          "errorSubCode": {
+            "type": "string",
+            "example": "EMAIL_ALREADY_IN_USE"
+          },
+          "errorFields": {
+            "description": "Array of fields with specified errors",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "errorMsg",
+          "errorSubCode",
+          "errorFields"
         ]
       },
       "TokensResponseDto": {
