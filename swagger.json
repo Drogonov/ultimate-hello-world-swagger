@@ -149,7 +149,7 @@
         ]
       }
     },
-    "/auth/local/signup": {
+    "/auth/local/signUp": {
       "post": {
         "operationId": "AuthController_signupLocal",
         "parameters": [],
@@ -169,7 +169,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SignUpResponseDto"
+                  "$ref": "#/components/schemas/StatusResponseDto"
                 }
               }
             }
@@ -191,7 +191,7 @@
         ]
       }
     },
-    "/auth/local/verifyotp": {
+    "/auth/local/verifyOTP": {
       "post": {
         "operationId": "AuthController_verifyOTP",
         "parameters": [],
@@ -233,7 +233,49 @@
         ]
       }
     },
-    "/auth/local/signin": {
+    "/auth/local/resendOTP": {
+      "post": {
+        "operationId": "AuthController_resendOTP",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns operation status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusResponseDto"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Returns business top layer error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Resend OTP and update it for user",
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/auth/local/signIn": {
       "post": {
         "operationId": "AuthController_signinLocal",
         "parameters": [],
@@ -285,7 +327,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LogoutResponseDto"
+                  "$ref": "#/components/schemas/StatusResponseDto"
                 }
               }
             }
@@ -538,7 +580,7 @@
           "password"
         ]
       },
-      "SignUpResponseDto": {
+      "StatusResponseDto": {
         "type": "object",
         "properties": {
           "status": {
@@ -596,18 +638,6 @@
         "required": [
           "access_token",
           "refresh_token"
-        ]
-      },
-      "LogoutResponseDto": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "Successful"
-          }
-        },
-        "required": [
-          "status"
         ]
       }
     }
